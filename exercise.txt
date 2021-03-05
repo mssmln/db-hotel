@@ -44,3 +44,6 @@ FROM `ospiti`
 WHERE YEAR(`date_of_birth`) = 1975 AND `document_type` = "DRIVER LICENSE";
 
 8. Quanti posti letto ha l'hotel in totale?
+
+SELECT SUM(`beds`) AS beds_number
+FROM `stanze`;
