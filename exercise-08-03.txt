@@ -68,3 +68,14 @@ FROM `pagamenti`
 INNER JOIN `paganti`
 ON `pagamenti`.`pagante_id` = `paganti`.`id`
 WHERE `pagamenti`.`prenotazione_id` = 7
+
+
+BONUS 1
+/*Come si chiamano gli ospiti che hanno fatto più di due prenotazioni?*/
+
+SELECT `ospiti`.`name`, `ospiti`.`lastname`, COUNT(`prenotazioni_has_ospiti`.`prenotazione_id`) AS `booked_more_than_two`
+FROM `prenotazioni_has_ospiti`
+INNER JOIN `ospiti`
+ON `prenotazioni_has_ospiti`.`ospite_id` = `ospiti`.`id`  
+GROUP BY `ospiti`.`name`, `ospiti`.`lastname`
+HAVING COUNT(`booked_more_than_two`) > 2
