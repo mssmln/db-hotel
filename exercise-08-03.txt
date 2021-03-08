@@ -29,3 +29,11 @@ FROM `prenotazioni`
 GROUP BY `ora_prenotazione`
 
 5
+/*Stampare tutti gli ospiti per ogni prenotazione*/
+
+SELECT `prenotazioni_has_ospiti`.`prenotazione_id`, `ospiti`.`name`, `ospiti`.`lastname`
+FROM `prenotazioni_has_ospiti`
+INNER JOIN `ospiti`
+ON `prenotazioni_has_ospiti`.`ospite_id` = `ospiti`.`id`
+
+6
